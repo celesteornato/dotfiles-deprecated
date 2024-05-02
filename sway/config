@@ -28,7 +28,8 @@ gaps outer 5
 #
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
 output * bg ~/.dotfiles/wallpapers/background fill
-exec wal -i ~/.dotfiles/wallpapers/background 
+workspace 9
+exec kitty "nix flake update ~/.dotfiles/"
 workspace 2
 exec vencorddesktop
 workspace 3
