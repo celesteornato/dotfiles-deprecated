@@ -15,13 +15,12 @@
     "drm.edid_firmware=eDP-1:edid/1920x1080.bin"
   ];
   
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
 
-  time.timeZone = "Europe/Paris";
 
+  # Setup Locale
+  time.timeZone = "Europe/Paris";
   i18n.defaultLocale = "en_GB.UTF-8";
   i18n.supportedLocales = [
       "en_GB.UTF-8/UTF-8"
@@ -123,13 +122,9 @@
 
   };
 
-
-
   # Enable sound with pipewire.
   sound.enable = true;
   security.rtkit.enable = true;
-
-
 
   programs.fish.enable = true;
   users.users.main = {
@@ -143,8 +138,6 @@
     ];
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -190,6 +183,7 @@
     lshw
     godot_4
     iw
+    waybar
     (import ./scripts/wallswap.nix {inherit pkgs; })
     (import ./scripts/rebuild.nix {inherit pkgs; })
     (import ./scripts/prime-run.nix {inherit pkgs; })
@@ -216,6 +210,22 @@
     remotePlay.openFirewall = true; 
     dedicatedServer.openFirewall = true; 
   };
+
+  # Setup NIX
+  nix = {
+    settings = {
+      experimental-features = ["nix-command" "flakes"];
+      auto-optimise-store = true;
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+  };
+
+  nixpkgs.config.allowUnfree = true;
+
   networking.firewall.enable = false;
 
 
