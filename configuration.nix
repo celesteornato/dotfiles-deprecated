@@ -126,11 +126,12 @@
   sound.enable = true;
   security.rtkit.enable = true;
 
+  users.groups.video = {};
   programs.fish.enable = true;
   users.users.main = {
     isNormalUser = true;
     description = "Main";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video"];
     shell = pkgs.fish;
     packages = with pkgs; [
       firefox
@@ -150,6 +151,7 @@
     sway
     swaybg
     grim
+    grimblast
     slurp
     wl-clipboard
     mako
@@ -184,6 +186,8 @@
     godot_4
     iw
     waybar
+    brightnessctl
+    acpi
     (import ./scripts/wallswap.nix {inherit pkgs; })
     (import ./scripts/rebuild.nix {inherit pkgs; })
     (import ./scripts/prime-run.nix {inherit pkgs; })
@@ -210,6 +214,7 @@
     remotePlay.openFirewall = true; 
     dedicatedServer.openFirewall = true; 
   };
+  programs.light.enable = true;
 
   # Setup NIX
   nix = {
