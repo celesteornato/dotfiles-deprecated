@@ -189,6 +189,7 @@
     brightnessctl
     acpi
     vitetris
+    texlive
     (import ./scripts/wallswap.nix {inherit pkgs; })
     (import ./scripts/rebuild.nix {inherit pkgs; })
     (import ./scripts/prime-run.nix {inherit pkgs; })
