@@ -54,7 +54,7 @@
       };
       avahi = {
         enable = true;
-        nssmdns = true;
+        nssmdns4 = true;
         openFirewall = true;
         publish = {
           enable = true;
@@ -74,14 +74,14 @@
       };
 
       # Touchpad
-      xserver.libinput.enable = true;
+      libinput.enable = true;
 
       xserver = {
         videoDrivers = ["nvidia"];
         enable = true;
         displayManager.startx.enable = true;
-        layout = "fr";
-        xkbVariant = "";
+        xkb.layout = "fr";
+        xkb.variant = "";
       };
 
       openssh.enable = true;
@@ -181,13 +181,14 @@
     pywal
     gamemode
     mangohud
-    nvtop
+    nvtopPackages.full
     lshw
     godot_4
     iw
     waybar
     brightnessctl
     acpi
+    vitetris
     (import ./scripts/wallswap.nix {inherit pkgs; })
     (import ./scripts/rebuild.nix {inherit pkgs; })
     (import ./scripts/prime-run.nix {inherit pkgs; })
@@ -214,7 +215,6 @@
     remotePlay.openFirewall = true; 
     dedicatedServer.openFirewall = true; 
   };
-  programs.light.enable = true;
 
   # Setup NIX
   nix = {

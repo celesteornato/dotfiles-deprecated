@@ -1,5 +1,5 @@
 { pkgs }:
 
 pkgs.writeShellScriptBin "rebuild" ''
-  sudo nixos-rebuild switch --flake ~/.dotfiles/
+  sudo nixos-rebuild switch --flake ~/.dotfiles/ $1
 ''

@@ -2,7 +2,7 @@
   description = "";
 
   inputs = {
-    nixpkgs.url="nixpkgs/nixos-23.11";
+    nixpkgs.url="github:auxolotl/nixpkgs/nixos-unstable";
   };
   
   outputs = {self, nixpkgs, ... }:
