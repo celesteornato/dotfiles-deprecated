@@ -189,7 +189,9 @@
     brightnessctl
     acpi
     vitetris
-    texlive
+    tectonic
+    kalker
+    opera
     (import ./scripts/wallswap.nix {inherit pkgs; })
     (import ./scripts/rebuild.nix {inherit pkgs; })
     (import ./scripts/prime-run.nix {inherit pkgs; })
