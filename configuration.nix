@@ -43,7 +43,6 @@
   console.keyMap = "fr";
 
   services = {
-      # Cups does not seem to work but you never know
       printing = {
         enable = true;
         allowFrom = [ "all" ];
@@ -140,16 +139,20 @@
   };
 
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
+    (import ./scripts/wallswap.nix {inherit pkgs; })
+    (import ./scripts/rebuild.nix {inherit pkgs; })
+    (import ./scripts/prime-run.nix {inherit pkgs; })
     vim
+    neovim
     wget
     git
-    fastfetch
-    kitty
-    sway
     swaybg
+    sway
+    kitty
+    fish
+    pulseaudio
+    fastfetch
     grim
     grimblast
     slurp
@@ -159,7 +162,6 @@
     vesktop
     prism
     prismlauncher
-    fish
     tuir
     ytfzf
     steam
@@ -169,14 +171,12 @@
     htop
     btop
     blueman
-    neovim
     gcc
     rustup
     zig
     hplip
     hyfetch
     xfce.thunar
-    pulseaudio
     tmux
     pywal
     gamemode
@@ -187,14 +187,10 @@
     iw
     waybar
     brightnessctl
-    acpi
     vitetris
     tectonic
     kalker
     opera
-    (import ./scripts/wallswap.nix {inherit pkgs; })
-    (import ./scripts/rebuild.nix {inherit pkgs; })
-    (import ./scripts/prime-run.nix {inherit pkgs; })
   ];
   fonts.packages = with pkgs; [
     nerdfonts
