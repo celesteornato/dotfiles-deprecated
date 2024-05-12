@@ -1,9 +1,11 @@
-@define-color fg #f5f5f5;
-@define-color bg rgba(9,31,46,0.8);
+@import '../../.cache/wal/colors-waybar.css';
+@define-color fg @color7;
+@define-color bg @color0;
 @define-color bordercolor #888CA7;
 @define-color disabled #a5a5a5;
 @define-color alert #f53c3c;
 @define-color activegreen #8fb666;
+
 
 * {
   min-height: 0;
@@ -126,60 +128,30 @@ label:focus {
   animation-direction: alternate;
 }
 
-#cpu {
-  color: #cb221b;
-}
-/**/
-#temperature {
-  color: #d55c0d;
+#clock {
+  color: @color2;
 }
 /**/
 #memory {
-  color: #FF8000;
+  color: @color2;
+}
+#pulseaudio {
+  color: @color2;
 }
 /**/
 #disk {
-  color: #00FF00;
+  color: @color3;
 }
-
 #backlight {
-  color: #FFA000;
-}
-#pulseaudio {
-  color: #FF8000;
-}
-#clock {
-  color: #FF0000;
-}
-#battery {
-  color: #00FF00;
+  color: @color3;
 }
 /**/
+#battery {
+  color: @color7;
+}
 #network {
-  color: #00A0FF;
+  color: @color7;
 }
 
-/* In case you want to seperate the modules in left/right/center */
-/* .modules-left { */
-/*   background: @bg; */
-/*   border: 2px solid @bordercolor; */
-/*   border-radius: 20px; */
-/*   padding-right: 5px; */
-/*   padding-left: 5px; */
-/* } */
-/**/
-/* .modules-right { */
-/*   background: @bg; */
-/*   border: 2px solid @bordercolor; */
-/* border-radius: 20px; */
-/*   padding-right: 5px; */
-/*   padding-left: 5px; */
-/* } */
-/**/
-/* .modules-center { */
-/*   background: @bg; */
-/*   border: 2px solid @bordercolor; */
-/* border-radius: 20px; */
-/*   padding-right: 5px; */
-/*   padding-left: 5px; */
-/* } */
+
+
