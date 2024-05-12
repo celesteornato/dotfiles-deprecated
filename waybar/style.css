@@ -1,5 +1,5 @@
 @define-color fg #f5f5f5;
-@define-color bg #091F2D;
+@define-color bg rgba(9,31,46,0.8);
 @define-color bordercolor #888CA7;
 @define-color disabled #a5a5a5;
 @define-color alert #f53c3c;
@@ -71,6 +71,7 @@ button:hover {
 #language,
 #backlight,
 #network,
+#network2
 #pulseaudio,
 #wireplumber,
 #custom-media,
@@ -134,28 +135,28 @@ label:focus {
 }
 /**/
 #memory {
-  color: #679c68;
+  color: #FF8000;
 }
 /**/
 #disk {
-  color: #5cc0a4;
+  color: #00FF00;
 }
 
 #backlight {
-  color: #d69821;
+  color: #FFA000;
 }
 #pulseaudio {
-  color: #f48466;
+  color: #FF8000;
 }
 #clock {
-  color: #f16186;
+  color: #FF0000;
 }
 #battery {
-  color: #5cc084;
+  color: #00FF00;
 }
 /**/
 #network {
-  color: #33a3ff;
+  color: #00A0FF;
 }
 
 /* In case you want to seperate the modules in left/right/center */

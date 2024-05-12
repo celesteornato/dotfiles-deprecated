@@ -148,7 +148,7 @@
     wget
     git
     swaybg
-    stable.sway
+    sway
     kitty
     fish
     pulseaudio

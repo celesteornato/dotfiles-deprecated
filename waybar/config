@@ -9,9 +9,9 @@
     "spacing": 1,
 
     // Choose the order of the modules
-
+    "modules-left": ["battery", "backlight", "pulseaudio", ],
     "modules-center": ["clock"],
-    "modules-right": ["network", "disk", "backlight", "pulseaudio", "custom/separator", "tray", "battery", "memory" ],
+    "modules-right": ["memory", "disk","network", "custom/separator", "tray"],
 
     // Modules configuration
     "keyboard-state": {
@@ -97,13 +97,13 @@
         // "format-source": "{volume}% ",
         // "format-source-muted": "",
         "format-icons": {
-            "headphone": "󰋋",
-            "hands-free": "󱡒",
-            "headset": "󰋎",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
+            "headphone": "󰋋 ",
+            "hands-free": "󱡒 ",
+            "headset": "󰋎 ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [" ", " ", " "]
         },
         "on-click": "pavucontrol"
     },
