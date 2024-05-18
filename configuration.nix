@@ -14,7 +14,6 @@
   boot.kernelParams = [
     "drm.edid_firmware=eDP-1:edid/1920x1080.bin"
   ];
-  
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
 
@@ -84,6 +83,7 @@
       };
 
       openssh.enable = true;
+      earlyoom.enable = true;
   };
 
   hardware = {
@@ -191,6 +191,12 @@
     tectonic
     kalker
     opera
+    mpv
+    feh
+    transmission
+    earlyoom
+    unzip
+    obs-studio
   ];
   fonts.packages = with pkgs; [
     nerdfonts
