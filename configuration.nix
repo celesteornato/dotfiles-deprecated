@@ -127,6 +127,7 @@
 
   users.groups.video = {};
   programs.fish.enable = true;
+  programs.nix-ld.enable = true;
   users.users.main = {
     isNormalUser = true;
     description = "Main";
@@ -143,6 +144,7 @@
     (import ./scripts/wallswap.nix {inherit pkgs; })
     (import ./scripts/rebuild.nix {inherit pkgs; })
     (import ./scripts/prime-run.nix {inherit pkgs; })
+    (import ./scripts/update.nix {inherit pkgs; })
     vim
     neovim
     wget
@@ -172,7 +174,13 @@
     btop
     blueman
     gcc
+    python3
     rustup
+    cargo
+    rustc
+    rust-analyzer
+    rustfmt
+    cmake
     zig
     hplip
     hyfetch
