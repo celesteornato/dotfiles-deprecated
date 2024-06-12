@@ -94,6 +94,11 @@
       powerOnBoot = true;
     };
     pulseaudio.enable = false;
+    # SANE
+    sane = {
+      enable = true;
+      extraBackends = [ pkgs.hplipWithPlugin ];
+    };
 
     # NVIDIA
     opengl = {
@@ -131,7 +136,7 @@
   users.users.main = {
     isNormalUser = true;
     description = "Main";
-    extraGroups = [ "networkmanager" "wheel" "video"];
+    extraGroups = [ "networkmanager" "wheel" "video" "scanner" "lp"];
     shell = pkgs.fish;
     packages = with pkgs; [
       firefox
@@ -145,6 +150,7 @@
     (import ./scripts/rebuild.nix {inherit pkgs; })
     (import ./scripts/prime-run.nix {inherit pkgs; })
     (import ./scripts/update.nix {inherit pkgs; })
+    (import ./scripts/scan.nix {inherit pkgs; })
     vim
     neovim
     wget
@@ -155,10 +161,10 @@
     fish
     pulseaudio
     fastfetch
-    grim
-    grimblast
-    slurp
-    wl-clipboard
+    stable.grim
+    stable.grimblast
+    stable.slurp
+    stable.wl-clipboard
     mako
     rofi
     vesktop
@@ -174,6 +180,7 @@
     btop
     blueman
     gcc
+    gpp
     python3
     rustup
     cargo
@@ -181,6 +188,8 @@
     rust-analyzer
     rustfmt
     cmake
+    gnumake
+    ninja
     zig
     hplip
     hyfetch
@@ -205,6 +214,7 @@
     earlyoom
     unzip
     obs-studio
+    stable.trenchbroom
   ];
   fonts.packages = with pkgs; [
     nerdfonts
@@ -241,6 +251,7 @@
       options = "--delete-older-than 7d";
     };
   };
+
 
   nixpkgs.config.allowUnfree = true;
 
