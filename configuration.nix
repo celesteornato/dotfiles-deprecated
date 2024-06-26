@@ -101,10 +101,8 @@
     };
 
     # NVIDIA
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
     };
     nvidia = {
       modesetting.enable = true;
@@ -210,11 +208,15 @@
     opera
     mpv
     feh
-    transmission
+    transmission_4
     earlyoom
     unzip
     obs-studio
     stable.trenchbroom
+    stable.audacity
+    gimp
+    krita
+    wl-gammactl
   ];
   fonts.packages = with pkgs; [
     nerdfonts
