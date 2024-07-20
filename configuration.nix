@@ -9,6 +9,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   
   # Set refresh rate to 60Hz at bootup to counter a manufacturing defect on my screen
   boot.kernelParams = [
@@ -48,7 +49,7 @@
         browsing = true;
         defaultShared = true;
         openFirewall = true;
-        drivers = [pkgs.hplipWithPlugin];
+        #drivers = [pkgs.hplipWithPlugin];
       };
       avahi = {
         enable = true;
@@ -97,7 +98,7 @@
     # SANE
     sane = {
       enable = true;
-      extraBackends = [ pkgs.hplipWithPlugin ];
+#      extraBackends = [ pkgs.hplipWithPlugin ];
     };
 
     # NVIDIA
@@ -172,14 +173,13 @@
     ytfzf
     steam
     oh-my-fish
-    wine
+    wineWowPackages.waylandFull
     winetricks
     htop
     btop
     blueman
     gcc
     gpp
-    python3
     rustup
     cargo
     rustc
@@ -189,7 +189,7 @@
     gnumake
     ninja
     zig
-    hplip
+   #stable.hplip
     hyfetch
     xfce.thunar
     tmux
@@ -217,6 +217,13 @@
     gimp
     krita
     wl-gammactl
+    ncpamixer
+    p7zip
+    
+    # Some libraries are required for Lutris to work correctly
+    libunwind
+    lutris
+
   ];
   fonts.packages = with pkgs; [
     nerdfonts
