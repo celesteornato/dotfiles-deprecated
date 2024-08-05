@@ -7,14 +7,18 @@
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+
+    # Custom param to counter a manufacturing defect
+    kernelParams = [
+      "drm.edid_firmware=eDP-1:edid/1920x1080.bin"
+    ];
+    kernelPackages = pkgs.linuxPackages_6_9;
+
+  };
   
-  # Set refresh rate to 60Hz at bootup to counter a manufacturing defect on my screen
-  boot.kernelParams = [
-    "drm.edid_firmware=eDP-1:edid/1920x1080.bin"
-  ];
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
 
@@ -125,13 +129,17 @@
 
   };
 
+
+
+  # Enable the nix-ld package for dynamic libraries
+  programs.nix-ld.enable = true;
+
   # Enable sound with pipewire.
-  sound.enable = true;
   security.rtkit.enable = true;
 
   users.groups.video = {};
   programs.fish.enable = true;
-  programs.nix-ld.enable = true;
+
   users.users.main = {
     isNormalUser = true;
     description = "Main";
@@ -219,6 +227,7 @@
     wl-gammactl
     ncpamixer
     p7zip
+    hyprland
     
     # Some libraries are required for Lutris to work correctly
     libunwind

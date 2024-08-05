@@ -32,28 +32,9 @@ output * bg ~/.dotfiles/wallpapers/background fill
 workspace 9
 exec waybar --config /home/main/.dotfiles/waybar/config --style ~/.dotfiles/waybar/style.css
 workspace 2
-exec vencorddesktop
+exec vesktop
 workspace 1
 exec librewolf
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-
-### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
 input type:touchpad {
@@ -82,7 +63,8 @@ bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
 bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
 # Kill focused window
 bindsym $mod+q kill
-
+# Hide Bar
+bindsym $mod+space exec killall -SIGUSR1 waybar
 # Start your launcher
 bindsym $mod+d exec $menu
 
