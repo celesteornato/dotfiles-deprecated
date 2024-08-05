@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports =
@@ -15,7 +15,7 @@
     kernelParams = [
       "drm.edid_firmware=eDP-1:edid/1920x1080.bin"
     ];
-    kernelPackages = pkgs.linuxPackages_6_9;
+    kernelPackages = pkgs.linuxPackages_6_8;
 
   };
   
@@ -150,6 +150,12 @@
       librewolf
     ];
   };
+  home-manager = {
+    extraSpecialArgs = {inherit inputs;};
+    users = {
+      "Main" = import ./home.nix;
+    };
+  };
 
 
   environment.systemPackages = with pkgs; [
@@ -193,10 +199,8 @@
     rustc
     rust-analyzer
     rustfmt
-    cmake
     gnumake
     ninja
-    zig
    #stable.hplip
     hyfetch
     xfce.thunar
@@ -206,33 +210,19 @@
     mangohud
     nvtopPackages.full
     lshw
-    godot_4
     iw
     waybar
     brightnessctl
-    vitetris
-    tectonic
     kalker
-    opera
     mpv
     feh
-    transmission_4
     earlyoom
     unzip
-    obs-studio
     stable.trenchbroom
-    stable.audacity
-    gimp
-    krita
-    wl-gammactl
     ncpamixer
     p7zip
     hyprland
-    
-    # Some libraries are required for Lutris to work correctly
-    libunwind
-    lutris
-
+    home-manager
   ];
   fonts.packages = with pkgs; [
     nerdfonts
