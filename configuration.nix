@@ -15,7 +15,7 @@
     kernelParams = [
       "drm.edid_firmware=eDP-1:edid/1920x1080.bin"
     ];
-    kernelPackages = pkgs.linuxPackages_6_8;
+    kernelPackages = pkgs.linuxPackages_6_9;
 
   };
   
@@ -150,12 +150,6 @@
       librewolf
     ];
   };
-  home-manager = {
-    extraSpecialArgs = {inherit inputs;};
-    users = {
-      "Main" = import ./home.nix;
-    };
-  };
 
 
   environment.systemPackages = with pkgs; [
@@ -165,6 +159,10 @@
     (import ./scripts/update.nix {inherit pkgs; })
     (import ./scripts/scan.nix {inherit pkgs; })
     vim
+    adwaita-qt
+    adapta-gtk-theme
+    pkgs.adwaita-icon-theme
+    xorg.xcursorthemes
     neovim
     wget
     git
@@ -181,14 +179,14 @@
     mako
     rofi
     vesktop
-    prism
-    prismlauncher
+    #prism
+    #prismlauncher
     tuir
     ytfzf
-    steam
+    #steam
     oh-my-fish
-    wineWowPackages.waylandFull
-    winetricks
+    # wineWowPackages.waylandFull
+    # winetricks
     htop
     btop
     blueman
@@ -200,7 +198,7 @@
     rust-analyzer
     rustfmt
     gnumake
-    ninja
+    # ninja
    #stable.hplip
     hyfetch
     xfce.thunar
@@ -218,7 +216,7 @@
     feh
     earlyoom
     unzip
-    stable.trenchbroom
+    # stable.trenchbroom
     ncpamixer
     p7zip
     hyprland
